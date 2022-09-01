@@ -1,6 +1,7 @@
 <div align="center">
 <a href="https://nodejs.org/en/" target="_blank" title="NodeJS"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain-wordmark.svg" align="center" height="20%" width="25%"><a/>
 <a href="https://kit.svelte.dev/" target="_blank" title="FastAPI"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/svelte/svelte-original-wordmark.svg" align="center" height="20%" width="25%"><a/>
+<a href="https://kit.svelte.dev/" target="_blank" title="FastAPI"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg" align="center" height="20%" width="25%"><a/>
 </div>
 <p align="center">
     <em>Open Source - Public API</em>
