@@ -10,6 +10,10 @@
 # What is?
 
 is a set of files that you can download and use as an initial template to build your website and adjust according to your needs.
+    
+    
+![gif-svelte-auth-template](https://user-images.githubusercontent.com/94759569/188048889-81bbb600-8c40-4353-a167-5a0d431c2341.gif)
+
 
 # Who is this for?
 programmers or developers.
@@ -18,7 +22,17 @@ programmers or developers.
 
 If you want to streamline your work while saving coding time using an already created template, well, this is for you.
 
-
 # How to use?
+    
+Fist you need install NodeJS, second SvelteKit, and then just paste files on "/your-app/src" &
+    npm run dev -- --open
+    
+# Features
+    Token ✅
+    Cookies ✅
+    Session/LocalStorage Cache ✅
 
 # Project Design
+    Coming soon
+    
+    
