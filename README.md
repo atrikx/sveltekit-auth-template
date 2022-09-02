@@ -9,14 +9,12 @@
 
 # What is?
 
-is a set of files that you can download and use as an initial template to build your website and adjust according to your needs.
+is a set of files that you can download and use as an initial template to build your website and adjust according to your needs. <br>
+(preview below)
     
-    
-![gif-svelte-auth-template](https://user-images.githubusercontent.com/94759569/188048889-81bbb600-8c40-4353-a167-5a0d431c2341.gif)
-
 
 # Who is this for?
-programmers or developers.
+programmers or developers: front-end stack!
 
 # Why should I use this?
 
@@ -24,15 +22,23 @@ If you want to streamline your work while saving coding time using an already cr
 
 # How to use?
     
-Fist you need install NodeJS, second SvelteKit, and then just paste files on "/your-app/src" &
-    npm run dev -- --open
+Fist you need install NodeJS, second SvelteKit, and then just: <br>
+<ul>
+    <li> paste these github files on "/your-app/src" </li>
+    <li> Backend API not included! </li>
+    <li> You must have /your-app/.env files with "VITE_MYAPI=your_api_endpoint" </li>
+    <li> Change API endpoint for new-account, login and account </li>
+    <li> npm run dev -- --open <br> </li>
+ </ul>
     
 # Features
     Token ✅
     Cookies ✅
     Session/LocalStorage Cache ✅
 
-# Project Design
+<img align="center" alt="preview" src="https://user-images.githubusercontent.com/94759569/188048889-81bbb600-8c40-4353-a167-5a0d431c2341.gif" >
+
+# Software Design Architecture
     Coming soon
     
     
