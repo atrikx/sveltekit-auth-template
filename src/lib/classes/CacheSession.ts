@@ -7,29 +7,35 @@ import { browser } from '$app/environment';
  */
 export class CacheSession {
 
+
     public async setSessionItem() {
         null
     }
 
     /**
-     * This function is responsible for store specific a request.formData type
-     * Params usage example (formData, 'email', 'username',)
-     * It's like a "remember what user is writing" but just for his own browser
-     * and just for session "tab", if he closes tab and open again will be deleted.
-     * @param formData: Type request.formData
-     * @param args: inputNames you want to cache
+     * For each element you pass in array, 
+     * it will save in sessionStorage as example:
+     * key: email, value: ickynho7@outlook.com
+     * @param formData : request.formData()
+     * @param arrayOfInputs : [ 'email', 'username' ]
      */
-    public async saveFormData(formData: any, ...args: any) {
-        const times = await args.length;
+    public async saveFormData(formData: any, arrayOfInputs: any) {
+        arrayOfInputs.forEach( (element: string) => {
+            const key = element;
+            const value = String(formData.get(key)) ?? "";
+            browser ? sessionStorage.setItem(key, value) : "";
 
-        for (let i = 0; i < times; i++) {
-            const inputName = await args[i]
-            const value = String(await formData.get(inputName)) ?? "";
-            (browser ? sessionStorage.setItem(inputName, value) : "");
-        }
+
+        });
     };
 
-    public checkSessionStorage = (inputField: string) => browser ? sessionStorage.getItem(inputField) ?? '' : null;
+    /**
+     * You should use this method in +page.svelte to get values stored
+     * in sessionStorage client-side.
+     * @param key : You should select which key you want to get values
+     * @returns value from a key stored in sessionStorage
+     */
+    public checkSessionStorage = (key: string) => browser ? sessionStorage.getItem(key) ?? '' : null;
 
 }
 
