@@ -11,10 +11,7 @@ export const handle: Handle = async ({ event, resolve }) => {
     
     const cookies = cookie.parse(getCookiesFromRequest);
 
-    console.log("cookies from request: ", cookies);
-
     event.locals.user = {token: cookies.token}
-    console.log("event locals: ", event.locals);
     
 
     const response = await resolve(event);

@@ -1,30 +1,28 @@
-import { redirect, type ServerLoadEvent } from "@sveltejs/kit";
+import type { ServerLoadEvent } from "@sveltejs/kit";
 import { Fetch } from "$lib/classes/Fetch";
 import { apiMyAccount } from "$lib/configs";
+import { redirect } from "@sveltejs/kit";
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ locals }: ServerLoadEvent) {
-    try {
-        
-        // Define Constants        
-        //const url: string = apiMyAccount;
-        //const token = locals.user.token;
-        console.log(locals);
-        
 
-        // Fetch     
-        //const response = await new Fetch().get(url, token)
-        // if (!response.ok) throw redirect(301, "/login");
+    // Define Constants        
+    const url: string = apiMyAccount;
+    const token = locals.user.token;
+    console.log(token);
 
-        //const dataReceived = await response.json();
-/*
-        return {
-            username: dataReceived.username,
-            email: dataReceived.email
-        };
+    // Fetch     
+    const response = await new Fetch().get(url, token).catch(() => {throw redirect(301, "/APIisOffline")});
+    if (!response?.ok) throw redirect(301, "/login");
 
-        */
-    } catch { throw redirect(301, "/login") }
+    const dataReceived = await response.json();
+    console.log(dataReceived);
+    
+    return {
+        username: dataReceived.username,
+        email: dataReceived.email
+    };
+
 
 }
 
