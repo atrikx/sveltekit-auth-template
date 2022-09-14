@@ -8,8 +8,8 @@ import { browser } from '$app/environment';
 export class CacheSession {
 
 
-    public async setSessionItem() {
-        null
+    public setItem = (key: string, value: string) => {
+        browser ? sessionStorage.setItem(key, value): null;
     }
 
     /**
@@ -35,7 +35,7 @@ export class CacheSession {
      * @param key : You should select which key you want to get values
      * @returns value from a key stored in sessionStorage
      */
-    public checkSessionStorage = (key: string) => browser ? sessionStorage.getItem(key) ?? '' : null;
+    public getItem = (key: string) => browser ? sessionStorage.getItem(key) ?? '' : null;
 
 }
 

@@ -1,11 +1,11 @@
 <script lang="ts">
 	// Components
-	import CenterLayout from '$lib/components/CenterLayout.svelte';
-	import Button from '$lib/components/Button.svelte';
-	import InputText from '$lib/components/InputText.svelte';
-	import FormEnhanced from '$lib/components/FormEnhanced.svelte';
-	import Card from '$lib/components/Card.svelte';
 	import ErrorParagraph from '$lib/components/ErrorParagraph.svelte';
+	import CenterLayout from '$lib/components/CenterLayout.svelte';
+	import FormEnhanced from '$lib/components/FormEnhanced.svelte';
+	import InputText from '$lib/components/InputText.svelte';
+	import Button from '$lib/components/Button.svelte';
+	import Card from '$lib/components/Card.svelte';
 
 	// Classes
 	import { CacheSession } from '$lib/classes/CacheSession';
@@ -24,7 +24,7 @@
 	let showIncorrectEmailOrPassword = false;
 
 	// Session Storage
-	const checkSessionStorage = new CacheSession().checkSessionStorage;
+	const checkSessionStorage = new CacheSession().getItem;
 	const restore = { email: checkSessionStorage('email') };
 	const store = {
 		email: writable(restore.email),
