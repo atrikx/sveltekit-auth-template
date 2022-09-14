@@ -1,6 +1,6 @@
 <script lang="ts">
-	export let name: string = 'name';
 	export let placeholder: string = 'Select your placeholder';
+	export let name: string = 'name';
 	export let type: string = 'text';
 	export let inputWidth = '100%';
 

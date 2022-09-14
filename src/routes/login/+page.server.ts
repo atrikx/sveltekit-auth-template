@@ -1,28 +1,28 @@
-import type { ServerLoadEvent } from '@sveltejs/kit';
-import * as cookie from 'cookie'
-import { Fetch } from '$lib/classes/Fetch';
-import { error } from '@sveltejs/kit';
-import { apiLogin } from '$lib/configs';
-/** @type {import('./$types').Action} */
+/** @type {import('./$types').Actions} */
+import type { RequestEvent } from "@sveltejs/kit";
+import { invalid } from '@sveltejs/kit';
+import { redirect } from "@sveltejs/kit";
+import { urlMyAccount } from "$lib/configs";
+import { apiLogin } from "$lib/configs";
+import { Fetch } from "$lib/classes/Fetch";
 
+export const actions = {
+  default: async ({ request, cookies }: RequestEvent) => {
 
-
-
-export async function POST({ request, setHeaders }: ServerLoadEvent) {
-
-  //const formData = await request.formData();
-  const getBodyValues = await request.json();
-
-  const request_api = await new Fetch().post(apiLogin, getBodyValues, '');
-  if (!request_api.ok) throw error(400, 'Fail');
-  const response_api = await request_api.json(); 
-
-  setHeaders({
-    'set-cookie': cookie.serialize('token', String(response_api.token), {
-      path: '/',
-      httpOnly: true,
-      sameSite: 'strict',
-      maxAge: 60 * 60 * 24 * 7, // one week
-  })});
+    const formData = await request.formData();
+    const json = Object.fromEntries(formData); 
+    
+    
+    // fetch data
+    const responseApi = await new Fetch().post(apiLogin, json, '');
+    if (!responseApi.ok) return invalid(400, { missing: true });
+    const responseData = await responseApi.json();
   
-}
+    // send token
+    cookies.set('token', responseData?.token || '');
+
+    // allow login
+    throw redirect(301, urlMyAccount)
+    
+  }
+};

@@ -1,13 +1,11 @@
 <script lang="ts">
+	import { devalue } from 'devalue';
 	import { logout } from './+page.server';
 
 	export let data;
 
-	const user_ = data.username || '';
-	const email_ = data.email || '';
-	if (!user_) {
-		console.log(user_, ' valor invalido');
-	}
+	const user_ = devalue(data?.username || '');
+	const email_ = devalue(data?.email || '')
 
 </script>
 

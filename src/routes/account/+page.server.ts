@@ -1,28 +1,29 @@
 import { redirect, type ServerLoadEvent } from "@sveltejs/kit";
-/** @type {import('./$types').PageServerLoad} */
 import { Fetch } from "$lib/classes/Fetch";
 import { apiMyAccount } from "$lib/configs";
 
-
+/** @type {import('./$types').PageServerLoad} */
 export async function load({ locals }: ServerLoadEvent) {
     try {
         
         // Define Constants        
-        const fetchUrlMyAccount: string = apiMyAccount;
-        const token = locals.user.token;
+        //const url: string = apiMyAccount;
+        //const token = locals.user.token;
+        console.log(locals);
+        
 
-        // Fetch        
-        const requestData = await new Fetch().get(fetchUrlMyAccount, token)
-        const response = await requestData
-        if (!response.ok) throw redirect(301, "/login");
+        // Fetch     
+        //const response = await new Fetch().get(url, token)
+        // if (!response.ok) throw redirect(301, "/login");
 
-        const dataReceived = await response.json();
-
+        //const dataReceived = await response.json();
+/*
         return {
             username: dataReceived.username,
             email: dataReceived.email
         };
 
+        */
     } catch { throw redirect(301, "/login") }
 
 }
