@@ -16,7 +16,8 @@
 
 	// SvelteKit
 	import { writable } from 'svelte/store';
-	import { applyAction } from '$app/forms';
+	import { applyAction, enhance } from '$app/forms';
+
 	/** @type {import('./$types').ActionData} */
 
 	// Reactive Components
@@ -48,7 +49,6 @@
 			const check = new formHandler().checkEmptyFieldsBeforeSend(enhanceData, formInputsSignIn);
 			check ? showEmptyFields = true : showEmptyFields = false;
 			console.log(check, 'check');
-			
 
 			// check for user exists or password match
 			return async ({ result }) => await result.type === 'redirect' ? applyAction(result) : showIncorrectEmailOrPassword = true;

@@ -1,11 +1,16 @@
-/** @type {import('./$types').Actions} */
+// SvelteKit
+import type { ServerLoadEvent } from "@sveltejs/kit";
 import type { RequestEvent } from "@sveltejs/kit";
-import { invalid } from '@sveltejs/kit';
 import { redirect } from "@sveltejs/kit";
+import { invalid } from '@sveltejs/kit';
+
+// Lib
+import { Fetch } from "$lib/classes/fetchHandler";
 import { urlMyAccount } from "$lib/configs";
 import { apiLogin } from "$lib/configs";
-import { Fetch } from "$lib/classes/fetchHandler";
 
+
+/** @type {import('./$types').Actions} */
 export const actions = {
   default: async ({ request, cookies }: RequestEvent) => {
 
@@ -26,3 +31,14 @@ export const actions = {
     
   }
 };
+
+/** @type {import('./$types').PageServerLoad} */
+export async function load({ locals }: ServerLoadEvent) {
+
+  // Define Constants        
+  const token = locals.user.token;
+
+  // isLoggedIn?  
+  if (token) throw redirect(301, urlMyAccount);
+
+}
