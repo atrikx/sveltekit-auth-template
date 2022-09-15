@@ -2,27 +2,22 @@
 	// Components
 	import ErrorParagraph from '$lib/components/ErrorParagraph.svelte';
 	import CenterLayout from '$lib/components/CenterLayout.svelte';
-	import FormEnhanced from '$lib/components/FormEnhanced.svelte';
+	import FormEnhanced from '$lib/components/FormCustomEnhanced.svelte';
 	import InputText from '$lib/components/InputText.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import Card from '$lib/components/Card.svelte';
-
 	// Classes
 	import { cacheSession } from '$lib/classes/cacheSession';
 	import { formHandler } from '$lib/classes/formHandler';
-
 	// Configs
-	import { urlSignUp, formInputsSignIn } from '$lib/configs';
-
+	import { urlSignUp, formObjectSignIn } from '$lib/configs';
 	// SvelteKit
 	import { writable } from 'svelte/store';
-	import { applyAction, enhance } from '$app/forms';
 
-	/** @type {import('./$types').ActionData} */
 
 	// Reactive Components
 	let showEmptyFields: boolean = false;
-	let showIncorrectEmailOrPassword = false;
+	let showIncorrectEmailOrPassword: boolean = false;
 
 	// Session Storage
 	const checkSessionStorage = new cacheSession().getItem;
@@ -31,6 +26,18 @@
 		email: writable(restore.email),
 		password: writable('')
 	};
+
+    // Scope Functions
+    function setShowEmptyFieldsTrue () {showEmptyFields = true;}
+    function setShowEmptyFieldsFalse () {showEmptyFields = false;}
+	
+    function enhanceCustom ( { form, data, cancel }: ActionParams ) {
+    
+        const formObject = formObjectSignIn;
+        const formAction = { form, data, cancel };
+        const enhance = new formHandler(formObject).enhanceFunction
+        return enhance(formAction, setShowEmptyFieldsTrue, setShowEmptyFieldsFalse)
+    }
 
 </script>
 
@@ -42,18 +49,7 @@
 
 	<Card title="Sign-in">
 
-		<FormEnhanced enhanceFunction={ ( { form, data, cancel } ) => {
-
-			// check for empty fields
-			const enhanceData = { form, data, cancel };
-			const check = new formHandler().checkEmptyFieldsBeforeSend(enhanceData, formInputsSignIn);
-			check ? showEmptyFields = true : showEmptyFields = false;
-			console.log(check, 'check');
-
-			// check for user exists or password match
-			return async ({ result }) => await result.type === 'redirect' ? applyAction(result) : showIncorrectEmailOrPassword = true;
-			}
-		}
+		<FormEnhanced enhanceCustom={enhanceCustom}
 		>
 			{#if showIncorrectEmailOrPassword}
 				<ErrorParagraph msg="Incorrect password or email doesn't exist."/>
@@ -63,7 +59,7 @@
 				<ErrorParagraph msg="There are empty fields."/>
 			{/if}
 
-			{#each formInputsSignIn as { name, placeholder, type } }
+			{#each formObjectSignIn as { name, placeholder, type } }
 				<InputText placeholder={placeholder} type={type} inputWidth="60%" name={name}
 				/>
 			{/each}

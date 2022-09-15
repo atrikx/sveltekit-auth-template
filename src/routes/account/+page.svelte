@@ -3,6 +3,7 @@
     import Button from '$lib/components/Button.svelte';
     import CenterLayout from '$lib/components/CenterLayout.svelte';
     import Card from '$lib/components/Card.svelte';
+    import FormEnhanced from '$lib/components/FormEnhanced.svelte';
 
     // SvelteKit
     import { devalue } from 'devalue'
@@ -15,11 +16,18 @@
 
 </script>
 
+<svelte:head>
+	<title>My Account</title>
+</svelte:head>
+
 <CenterLayout>
     <Card title={"My Account"}>
-        <p>Username: {username}</p>
-        <p>Email: {email}</p>
-        <a href="/logout"> <Button buttonWidth={"80%"} text={'logout'}/> </a>
+        <FormEnhanced action={"?/logout"}>
+            <h2>Username: {username.replace(/"/g, "")}</h2>
+            <h2>Email: {email.replace(/"/g, "")}</h2>
+            <Button buttonWidth={"80%"} text={'logout'}/>
+        </FormEnhanced>
+
     </Card>
 </CenterLayout>
 

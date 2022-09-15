@@ -1,12 +1,10 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
-	export let action: string;
+	export let enhanceCustom: any;
 </script>
 
 <form 
-	method="POST"
-	action={action}
-	use:enhance
+	use:enhance={enhanceCustom}
 	class="formStyle">
 	<slot />
 </form>

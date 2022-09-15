@@ -8,10 +8,9 @@ export const handle: Handle = async ({ event, resolve }) => {
     
     // Wraps request
     const getCookiesFromRequest = event.request.headers.get('cookie') ?? '';
-    
     const cookies = cookie.parse(getCookiesFromRequest);
 
-    event.locals.user = {token: cookies.token}
+    event.locals.user = {token: cookies?.token}
     
 
     const response = await resolve(event);
