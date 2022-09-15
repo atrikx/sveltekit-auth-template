@@ -4,13 +4,13 @@
 	let ColorBgButton = themeBgButton;
 	let ColorButtonInnerText = themeButtonInnerTextColor;
     let ColorButtonBoxShadow = themeButtonBoxShadow;
-	export let buttonWidth = '100%'
-
+	
 	const hoverButton = () => (ColorBgButton = themeBgButtonHover);
 	const mouseLeave = () => (ColorBgButton = themeBgButton);
-
+	
+	export let text = "params: text, buttonWidth functions: onClick";
+	export let buttonWidth = '100%'
 	export let onClick = () => {};
-	export let text = "text='anything'";
 
 </script>
 

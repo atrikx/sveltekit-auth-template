@@ -1,8 +1,10 @@
 
+
 /**
  * Class responsible to handler with forms.
  */
-export class FormHandler {
+export class formHandler {
+
 
     // 
 /**
@@ -11,19 +13,16 @@ export class FormHandler {
  * Check on: https://kit.svelte.dev/docs/form-actions
  * 
  * @param param0: pass { form, data, cancel }
- * @param setShowErrorTrue: It takes a function that set a scope variable to true.
- * @param setShowErrorFalse: It takes a function that set a scope variable to false.
- * @param ArrayOfFields: Which input fields you want to check if its empty
- * @returns 
+ * @param formInputsObjects: Which input fields you want to check if its empty
+ * @returns true if foundEmptyValue false if not
  */
 
-public checkEmptyFieldsBeforeSend = (
-    {form, data, cancel}: any, 
-    formInputs: { name: string }[]) => {
+public checkEmptyFieldsBeforeSend = ( {form, data, cancel}: any, 
+                                        formInputsObjects: { name: string }[]) => {
 
     let foundEmptyValue = false;
 
-    formInputs.forEach( (element) => {  
+    formInputsObjects.forEach( (element) => {  
         if (data.get(element.name) === '') {
             cancel();
             foundEmptyValue = true;
@@ -31,9 +30,9 @@ public checkEmptyFieldsBeforeSend = (
     });
     
     return foundEmptyValue ? true : false;
-}
+}}
 
-}
 
-export default new FormHandler();
+
+export default new formHandler();
 

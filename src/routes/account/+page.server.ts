@@ -1,5 +1,5 @@
 import type { ServerLoadEvent } from "@sveltejs/kit";
-import { Fetch } from "$lib/classes/Fetch";
+import { Fetch } from "$lib/classes/fetchHandler";
 import { apiMyAccount } from "$lib/configs";
 import { redirect } from "@sveltejs/kit";
 

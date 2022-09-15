@@ -1,5 +1,6 @@
 <script lang="ts">
-	export let placeholder: string = 'Select your placeholder';
+	import { writable } from "svelte/store";
+	export let placeholder: string = 'params: placeholder, name, type, inputWidt, bindValue';
 	export let name: string = 'name';
 	export let type: string = 'text';
 	export let inputWidth = '100%';
@@ -8,7 +9,8 @@
 		e.type = type;
 	};
 
-	export let bindValue: any = "" ?? null;
+	export let bindValue = writable('') ?? null;
+	
 </script>
 
 <div class="textField" style="--input-width: {inputWidth};">

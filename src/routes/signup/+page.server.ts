@@ -14,8 +14,9 @@ export const actions = {
     
     
     // fetch data
-    const responseApi = await new Fetch().post(apiLogin, json, '');
-    if (!responseApi.ok) return invalid(400, { missing: true });
+    const responseApi = await new Fetch().post(apiLogin, json, '').catch(() => {console.log('API offline');
+    });
+    if (!responseApi?.ok) return invalid(400, { missing: true });
     const responseData = await responseApi.json();
   
     // send token

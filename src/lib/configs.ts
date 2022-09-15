@@ -1,12 +1,19 @@
 
 
 // Svelte endpoints
-export const urlSignUp = '/new-account'
 export const urlMyAccount = '/account'
-export const urlSignIn = '/login'
+export const urlSignUp = '/signup'
+export const urlSignIn = '/signin'
 
 // Svelte forms
+export const inputsWidth = "60%"
+export const buttonsWidth = "50%"
 export const formInputsSignIn: { name: string, placeholder: string, type: string }[] = [
+    {name: 'email', placeholder: 'Email', type: "text"},
+    {name: 'password', placeholder: 'Password', type: "password"},
+]
+export const formInputsSignUp: { name: string, placeholder: string, type: string }[] = [
+    {name: 'username', placeholder: 'Username', type: "text"},
     {name: 'email', placeholder: 'Email', type: "text"},
     {name: 'password', placeholder: 'Password', type: "password"},
 ]

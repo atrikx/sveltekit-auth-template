@@ -3,9 +3,9 @@ import { browser } from '$app/environment';
 
 
 /**
- * Class responsible for store data in browser
+ * Class responsible for store/cache data in browser
  */
-export class CacheSession {
+export class cacheSession {
 
 
     public setItem = (key: string, value: string) => {
@@ -39,7 +39,7 @@ export class CacheSession {
 
 }
 
-export default new CacheSession();
+export default new cacheSession();
 
 
 

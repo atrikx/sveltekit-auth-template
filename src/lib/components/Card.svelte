@@ -1,5 +1,5 @@
 <script lang="ts">
-    export let title: string = "Title";
+    export let title: string = "Card Title";
 </script>
 
 
@@ -11,6 +11,8 @@
 <style>
     	.card {
 		background: #ffffff;
+		border-style: solid;
+		border-color: #adadad6d;
 		width: 30em;
 		display: flex;
 		justify-content: center;

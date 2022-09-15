@@ -8,8 +8,8 @@
 	import Card from '$lib/components/Card.svelte';
 
 	// Classes
-	import { CacheSession } from '$lib/classes/CacheSession';
-	import { FormHandler } from '$lib/classes/FormHandler';
+	import { cacheSession } from '$lib/classes/cacheSession';
+	import { formHandler } from '$lib/classes/formHandler';
 
 	// Configs
 	import { urlSignUp, formInputsSignIn } from '$lib/configs';
@@ -24,7 +24,7 @@
 	let showIncorrectEmailOrPassword = false;
 
 	// Session Storage
-	const checkSessionStorage = new CacheSession().getItem;
+	const checkSessionStorage = new cacheSession().getItem;
 	const restore = { email: checkSessionStorage('email') };
 	const store = {
 		email: writable(restore.email),
@@ -45,7 +45,7 @@
 
 			// check for empty fields
 			const enhanceData = { form, data, cancel };
-			const check = new FormHandler().checkEmptyFieldsBeforeSend(enhanceData, formInputsSignIn);
+			const check = new formHandler().checkEmptyFieldsBeforeSend(enhanceData, formInputsSignIn);
 			check ? showEmptyFields = true : showEmptyFields = false;
 
 			// check for user exists or password match
