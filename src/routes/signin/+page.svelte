@@ -47,6 +47,8 @@
 			const enhanceData = { form, data, cancel };
 			const check = new formHandler().checkEmptyFieldsBeforeSend(enhanceData, formInputsSignIn);
 			check ? showEmptyFields = true : showEmptyFields = false;
+			console.log(check, 'check');
+			
 
 			// check for user exists or password match
 			return async ({ result }) => await result.type === 'redirect' ? applyAction(result) : showIncorrectEmailOrPassword = true;
@@ -62,7 +64,7 @@
 			{/if}
 
 			{#each formInputsSignIn as { name, placeholder, type } }
-				<InputText bindValue={store[name]} placeholder={placeholder} type={type} inputWidth="60%" name={name}
+				<InputText placeholder={placeholder} type={type} inputWidth="60%" name={name}
 				/>
 			{/each}
 

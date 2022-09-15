@@ -19,7 +19,7 @@ export const formInputsSignUp: { name: string, placeholder: string, type: string
 ]
 
 // API endpoints
-export const apiUrl = 'http://127.0.0.1:8000'
+export const apiUrl = 'http://rootsolution.tplinkdns.com:8000'
 export const apiNewAccount = apiUrl + '/criar-conta'
 export const apiLogin = apiUrl + '/login'
 export const apiMyAccount = apiUrl + '/minha-conta'
