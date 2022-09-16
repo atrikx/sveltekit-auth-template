@@ -11,8 +11,12 @@
 
 # What is?
 
-Is template UI with an authentication and authorization system, that <br>
-(preview below)
+Is a template UI with an authentication and authorization system.<br>
+
+<div align="center">
+<img align="center" alt="preview" src="https://user-images.githubusercontent.com/94759569/188048889-81bbb600-8c40-4353-a167-5a0d431c2341.gif" height="50%" width="50%">
+</div>
+
     
 
 # Who is this for?
@@ -37,17 +41,45 @@ It will continuous be updated to newests versions of SvelteKit.
 First steps: <br>
 
 <ul>
-    <li> <a href="https://nodejs.org/en/download/"> install NodeJS </a> </li>
-    <li> Clone this repo </li>
-    <li> npm install </li>
-    <li> edit src/lib/configs.ts </li>
-    <li> npm run dev -- --open</li>
+<li> <a href="https://nodejs.org/en/download/"> install NodeJS </a> </li>
+<li> clone this repository </li>
+<li> edit configs.ts which is available in .../src/lib/ </li>
 </ul>
 
+Install packages
+    npm install
+Turn on-line
+    npm run dev -- --open
 
-<img align="center" alt="preview" src="https://user-images.githubusercontent.com/94759569/188048889-81bbb600-8c40-4353-a167-5a0d431c2341.gif" >
+
+## ⚠️ JSON data from API ⚠️
+    /account expects { "username": "Person Name", "email": "person@email.com", ... }
+    /login expects { "token": "Bearer whateverToken", ... }
+<p>
+    <em>Configuration file</em>
+</p>
+
+<div align="center">
+<img align="center" alt="preview" src="https://user-images.githubusercontent.com/94759569/190524257-314d783f-c9b3-4f56-81e7-7e35622cfda0.png" height="70%" width="70%">
+</div>
+
+<p>
+    <em>Theme file</em>
+</p>
+
+<div align="center">
+<img align="center" alt="preview" src="https://user-images.githubusercontent.com/94759569/190523529-592c85a9-111a-4d65-89ca-a033da5e2f38.png" height="70%" width="70%">
+</div>
+
 
 # Design Architecture
-    Coming soon
-    
+<p>
+    <em>Requests</em>
+</p>
+<div align="center">
+<img align="center" alt="preview" src="https://user-images.githubusercontent.com/94759569/190526711-3157f50f-90df-4c34-9352-15e3ea451b90.gif" height="70%" width="70%">
+</div>
+
+    More coming soon
+
     
