@@ -9,7 +9,7 @@
     <em>Open Source - Template Auth UI</em>
 </p>
 
-# What is?
+# What is? 🔍
 
 Is a template UI with an authentication and authorization system.<br>
 
@@ -17,18 +17,16 @@ Is a template UI with an authentication and authorization system.<br>
 <img align="center" alt="preview" src="https://user-images.githubusercontent.com/94759569/188048889-81bbb600-8c40-4353-a167-5a0d431c2341.gif" height="50%" width="50%">
 </div>
 
-    
+# Who is this for? 💻
+programmers or developers: front-end or full stack that already have backend API.
 
-# Who is this for?
-programmers or developers: front-end or full stack that already have backend API
-
-# Why should I use this?
+# Why should I use this? 🤔
 
 It's a faster way to start build your website, if you want to streamline your work while saving coding time using an already created template, well, this is for you.
 It will continuous be updated to newests versions of SvelteKit.
 
 
-# Features
+# Features ✔️
     Clean Code ✅
     Fast to configure ✅
     Easy to understand ✅
@@ -36,7 +34,7 @@ It will continuous be updated to newests versions of SvelteKit.
     Cookies handlers ✅
     Session/LocalStorage Cache handlers ✅
 
-# How to use?
+# How to use? 📝
     
 First steps: <br>
 
@@ -46,25 +44,46 @@ First steps: <br>
 <li> edit configs.ts which is available in .../src/lib/ </li>
 </ul>
 
-Install packages
+<br>
+Install packages <br>
+    
     npm install
-Turn on-line
+    
+<br>
+Turn on-line <br>
+    
     npm run dev -- --open
 
+<br>
+    
+## ⚠️ Expected JSON data from API ⚠️ <br>
+    
+/account <br>
+    
+    { "username": "Person Name", "email": "person@email.com" }
+    
+/login <br>
+    
+    { "token": "Bearer whateverToken" }
+<br>
+<br>
 
-## ⚠️ JSON data from API ⚠️
-    /account expects { "username": "Person Name", "email": "person@email.com", ... }
-    /login expects { "token": "Bearer whateverToken", ... }
+## Required: 🔴
 <p>
-    <em>Configuration file</em>
+    <em>you must change API [url, endpoints]</em><br>
+    easy change <em> config.ts </em>, available on <em> ../src/lib/components/ </em> file <br>
 </p>
 
 <div align="center">
 <img align="center" alt="preview" src="https://user-images.githubusercontent.com/94759569/190524257-314d783f-c9b3-4f56-81e7-7e35622cfda0.png" height="70%" width="70%">
 </div>
 
+<br>
+<br>
+
 <p>
-    <em>Theme file</em>
+    <em>Optional</em> <br>
+    easy change <em> theme.ts </em>, available on <em> ../src/lib/components/ </em> file 
 </p>
 
 <div align="center">
@@ -72,7 +91,7 @@ Turn on-line
 </div>
 
 
-# Design Architecture
+# Design Architecture ♻️
 <p>
     <em>Requests</em>
 </p>
